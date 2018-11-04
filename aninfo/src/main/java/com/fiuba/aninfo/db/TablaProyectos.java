@@ -1,5 +1,7 @@
 package com.fiuba.aninfo.db;
 
+import java.util.List;
+
 import com.fiuba.aninfo.model.Proyecto;
 
 public class TablaProyectos extends Tabla implements TableInterface<Proyecto>{
@@ -11,7 +13,7 @@ public class TablaProyectos extends Tabla implements TableInterface<Proyecto>{
 	}
 
 	@Override
-	public Proyecto select() {
+	public List<Proyecto> select() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,7 @@
 package com.fiuba.aninfo.db;
 
+import java.util.List;
+
 import com.fiuba.aninfo.model.Tarea;
 
 public class TablaTareas extends Tabla implements TableInterface<Tarea>{
@@ -11,7 +13,7 @@ public class TablaTareas extends Tabla implements TableInterface<Tarea>{
 	}
 
 	@Override
-	public Tarea select() {
+	public List<Tarea> select() {
 		// TODO Auto-generated method stub
 		return null;
 	}

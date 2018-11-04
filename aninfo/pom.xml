@@ -50,7 +50,13 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-
+		<!-- Cucumberg -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>4.0.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
