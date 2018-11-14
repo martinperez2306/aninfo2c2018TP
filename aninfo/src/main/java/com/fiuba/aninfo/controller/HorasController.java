@@ -21,14 +21,14 @@ public class HorasController {
 	@Autowired
 	private HorasService horasService;
 
-	@RequestMapping(value="/hour", method = RequestMethod.POST)
+	@RequestMapping(value="/hours", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> addHour(@RequestBody CargaDeHoras cargaDeHoras) {
 		ResponseEntity<String> response = new ResponseEntity<String>("Horas cargadas",HttpStatus.OK);
 		this.horasService.cargarHoras(cargaDeHoras);
 		return response;
 	}
 	
-	@RequestMapping(value="/hour", method = RequestMethod.GET)
+	@RequestMapping(value="/hours", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<Horas>> getHour() {
 		List<Horas> horas = this.horasService.getAllHoras();
 		ResponseEntity<List<Horas>> response = new ResponseEntity<List<Horas>>(horas,HttpStatus.OK);
