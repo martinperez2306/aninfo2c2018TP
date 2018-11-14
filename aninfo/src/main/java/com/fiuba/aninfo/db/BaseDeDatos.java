@@ -14,11 +14,16 @@ public class BaseDeDatos implements InitializingBean{
 	private TableInterface<Proyecto> proyectos;
 	private TableInterface<Tarea> tareas;
 	
+	private void initDataBase() {
+		
+	}
+	
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		empleados = new TablaEmpleados();
 		 proyectos = new TablaProyectos();
 		 tareas = new TablaTareas();
+		 this.initDataBase();
 	}
 
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fiuba.aninfo.model.Tarea;
 
-public class TablaTareas extends Tabla implements TableInterface<Tarea>{
+public class TablaTareas implements TableInterface<Tarea>{
 
 	@Override
 	public void insert(Tarea element) {
@@ -13,7 +13,7 @@ public class TablaTareas extends Tabla implements TableInterface<Tarea>{
 	}
 
 	@Override
-	public List<Tarea> select() {
+	public List<Tarea> select(String sql) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -12,8 +12,7 @@ public interface TableInterface<T> {
 	
 	public void insert(T element);
 	
-	public List<T>
-	select();
+	public List<T> select(String sql);
 	
 	public void update(T element);
 	

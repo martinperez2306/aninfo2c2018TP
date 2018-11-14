@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fiuba.aninfo.model.Proyecto;
 
-public class TablaProyectos extends Tabla implements TableInterface<Proyecto>{
+public class TablaProyectos implements TableInterface<Proyecto>{
 
 	@Override
 	public void insert(Proyecto element) {
@@ -13,7 +13,7 @@ public class TablaProyectos extends Tabla implements TableInterface<Proyecto>{
 	}
 
 	@Override
-	public List<Proyecto> select() {
+	public List<Proyecto> select(String sql) {
 		// TODO Auto-generated method stub
 		return null;
 	}
