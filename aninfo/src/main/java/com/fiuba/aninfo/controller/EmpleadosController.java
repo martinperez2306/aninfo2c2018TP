@@ -19,8 +19,8 @@ public class EmpleadosController {
 	@Autowired
 	private EmpleadoService empleadoService;
 	
-	@RequestMapping(value="/hour", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity<List<Empleado>> getHour() {
+	@RequestMapping(value="/employees", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Empleado>> getEmpleados() {
 		List<Empleado> proyectos = this.empleadoService.getAllEmpleados();
 		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(proyectos,HttpStatus.OK);
 		return response;

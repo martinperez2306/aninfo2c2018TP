@@ -19,8 +19,8 @@ public class ProyectosController {
 	@Autowired
 	private ProyectoService proyectoService;
 	
-	@RequestMapping(value="/hour", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity<List<Proyecto>> getHour() {
+	@RequestMapping(value="/projects", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Proyecto>> getProyjects() {
 		List<Proyecto> proyectos = this.proyectoService.getAllProyectos();
 		ResponseEntity<List<Proyecto>> response = new ResponseEntity<List<Proyecto>>(proyectos,HttpStatus.OK);
 		return response;

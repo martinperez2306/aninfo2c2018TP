@@ -29,7 +29,7 @@ public class HorasController {
 	}
 	
 	@RequestMapping(value="/hours", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity<List<Horas>> getHour() {
+	public @ResponseBody ResponseEntity<List<Horas>> getHours() {
 		List<Horas> horas = this.horasService.getAllHoras();
 		ResponseEntity<List<Horas>> response = new ResponseEntity<List<Horas>>(horas,HttpStatus.OK);
 		return response;
