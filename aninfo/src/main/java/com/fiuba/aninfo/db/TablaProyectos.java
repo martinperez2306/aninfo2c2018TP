@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
 import com.fiuba.aninfo.model.Proyecto;
 
+@Component
 public class TablaProyectos implements TableInterface<Proyecto>, InitializingBean {
 
 	private List<Proyecto> proyectosList;
@@ -40,6 +42,15 @@ public class TablaProyectos implements TableInterface<Proyecto>, InitializingBea
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		this.proyectosList = new ArrayList<Proyecto>();
+		Proyecto psaSpringERP = new Proyecto();
+		psaSpringERP.setCodigo("psaSpringERP");
+		Proyecto psaSpringCRM = new Proyecto();
+		psaSpringCRM.setCodigo("psaSpringCRM");
+		Proyecto psaBussinesAnalytics = new Proyecto();
+		psaBussinesAnalytics.setCodigo("psaBussinesAnalytics");
+		this.insert(psaSpringERP);
+		this.insert(psaSpringCRM);
+		this.insert(psaBussinesAnalytics);
 	}
 
 }

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fiuba.aninfo.dao.HorasDao;
-import com.fiuba.aninfo.model.CargaDeHoras;
+import com.fiuba.aninfo.model.HorasView;
 import com.fiuba.aninfo.model.Horas;
 
 @Service
@@ -16,7 +16,7 @@ public class HorasService {
 	@Autowired
 	private HorasDao horasDao;
 	
-	public void cargarHoras(CargaDeHoras cargaDeHoras) {
+	public void cargarHoras(HorasView cargaDeHoras) {
 		Horas horas = new Horas();
 		horas.setCodigoProyecto(cargaDeHoras.getProyecto().getCodigo());
 		horas.setCodigoTarea(cargaDeHoras.getTarea().getCodigo());
