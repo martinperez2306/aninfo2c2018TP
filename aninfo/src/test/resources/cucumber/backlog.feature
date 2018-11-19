@@ -1,10 +1,10 @@
-Feature: Backlog por Tarea
-  Como desarrollador
-  quiero contar con un backlog por tarea 
-  para poder estimar mejor el tiempo empleado y faltante.
+Feature: Backlog de Tareas
+  Como desarrollador 
+  quiero contar con un backlog de mis tareas asignadas 
+  para poder organizar mejor mi tiempo y evitar la sobrecarga de trabajo.
 
 
-  Scenario: Desarrollador consulta el Backlog de una tarea
+  Scenario: Desarrollador consulta el Backlog de Tareas
     Given un desarrollador
-    When quiere ver sus tareas
-    Then se le presenta una vista en forma de backlog que contiene todos los pasos que determinan a una tarea.
+    When quiere ver el estado de sus tareas
+    Then se le presenta una vista en forma de backlog que informa si una tarea fue completada o no
