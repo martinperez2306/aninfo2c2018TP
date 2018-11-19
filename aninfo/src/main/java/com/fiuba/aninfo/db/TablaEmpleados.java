@@ -44,9 +44,9 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 	}
 
 	@Override
-	public void delete(Empleado element) {
-		// TODO Auto-generated method stub
+	public void delete(Empleado empleado) {
 		
+		this.empleados.remove(empleado.getDni());
 	}
 
 	@Override
