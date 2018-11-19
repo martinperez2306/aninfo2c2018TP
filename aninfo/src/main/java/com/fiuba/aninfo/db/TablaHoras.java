@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
 import com.fiuba.aninfo.model.Horas;
 
+@Component
 public class TablaHoras implements TableInterface<Horas>, InitializingBean {
 	
 	private List<Horas> horasList;
