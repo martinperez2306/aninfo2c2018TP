@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty"},
-		features = "classpath:cucumber/asingaciones.feature"
+		features = "classpath:cucumber/asignaciones.feature"
 )
 public class AsignacionesTest {
 
