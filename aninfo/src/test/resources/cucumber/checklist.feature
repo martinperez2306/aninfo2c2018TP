@@ -4,8 +4,8 @@ Feature: Checklist por Tarea
   para poder estimar mejor el tiempo empleado y faltante.
 
   Scenario: Desarrollador consulta el listado de tareas
-    Given un desarrollador
-    When quiere ver el estado de sus tareas
+    Given un desarrollador que revisa su Tarea
+    When quiere ver sus tareas
     Then se le presenta una vista en forma de checklist que contiene todos los pasos que determinan a una tarea
     
   Scenario: Desarrollador actualiza el checklist completando una tarea

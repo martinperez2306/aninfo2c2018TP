@@ -41,7 +41,6 @@ public class TablaTareas implements TableInterface<Tarea>, InitializingBean{
 		Tarea tareaSeleccionada = this.tareas.get(tarea.getCodigo());
 		if(tareaSeleccionada != null) {
 			tareaSeleccionada.setDescripcion(tarea.getDescripcion());
-			tareaSeleccionada.setEstado(tarea.getEstado());
 			tareaSeleccionada.setNombre(tarea.getNombre());
 		}
 	}
