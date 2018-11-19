@@ -8,8 +8,6 @@ public class Tarea {
 	
 	private String descripcion;
 	
-	private EstadoTarea estado;
-	
 	public Tarea() {
 		
 	}
@@ -36,14 +34,6 @@ public class Tarea {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
-	}
-
-	public EstadoTarea getEstado() {
-		return estado;
-	}
-
-	public void setEstado(EstadoTarea estado) {
-		this.estado = estado;
 	}
 	
 }

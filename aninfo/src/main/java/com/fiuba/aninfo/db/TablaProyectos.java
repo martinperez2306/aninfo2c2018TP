@@ -24,7 +24,16 @@ public class TablaProyectos implements TableInterface<Proyecto>, InitializingBea
 
 	@Override
 	public List<Proyecto> select(String sql) {
-		return new ArrayList<Proyecto>(this.proyectosList);
+		List<Proyecto> proyectos = new ArrayList<Proyecto>();
+		if(sql == null || sql.equals("")) {
+			proyectos.addAll(this.proyectosList);
+		}else {
+			for (Proyecto proyecto : this.proyectosList) {
+				if(proyecto.getCodigo().equals(sql))
+					proyectos.add(proyecto);
+			}
+		}
+		return proyectos;
 	}
 
 	@Override
