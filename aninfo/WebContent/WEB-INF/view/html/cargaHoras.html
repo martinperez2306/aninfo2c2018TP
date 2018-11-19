@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sistema de Carga de Horas</title>
+<style>
+    body{
+        background-color:powderblue;
+    }
+</style>
+<script type="text/javascript" src="resources/angular/angular.min.js"></script>
+<script type="text/javascript"
+	src="resources/angular/controllers/carga-horas-controller.js"></script>
+</head>
+<body>
+<h1>Sistema de Carga de Horas</h1>
+<div style="display: inline-flex;" ng-app="aninfoApp" ng-controller="cargaHorasController">
+    <div ng-init="init()">
+	<form>
+		Seleccione la fecha
+		<br>
+		<input type="date" ng-model="horasCargadas.selectedDate">
+		<br>
+		<br>
+		Inicio
+		<br>
+		<input type="number" name="horaInicial" ng-change="calcularTotal()" ng-model="horasCargadas.horaInicial" min="0" max="23">
+		:
+		<input type="number" name="minutoInicial" ng-change="calcularTotal()" ng-model="horasCargadas.minutoInicial" min="0" max="59">
+		hs
+		<br>
+		Fin
+		<br>
+		<input type="number" name="horaFinal" ng-change="calcularTotal()" ng-model="horasCargadas.horaFinal" min="0" max="23">
+		:
+		<input type="number" name="minutoFinal" ng-change="calcularTotal()" ng-model="horasCargadas.minutoFinal" min="0" max="23">
+		hs
+		<br>
+		<br>
+		Horas Totales:
+		<br>
+		<input type="number" name="horasTotales" ng-model="horasCargadas.cantidadDeHoras" disabled min="0" max="24">
+		<br>
+		<br>
+		<button ng-click="cargarHoras()">Enviar</button>
+	</form>      
+    </div>
+    <div>
+        Seleccione la tarea
+	<br>
+	<select ng-model="horasCargadas.tarea">
+		<option value="Desarrollo">Desarrollo</option>
+		<option value="Testing">Testing</option>
+		<option value="Mantenimiento de Red">Mantenimiento de Red</option>
+		<option value="Auditoria">Auditoria</option>
+	</select>
+	<br>
+	<br>
+	Comentarios
+	<br>
+	<textarea rows="5" cols="25" ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
+	</textarea>
+    </div>
+</div>
+</body>
+</html>
