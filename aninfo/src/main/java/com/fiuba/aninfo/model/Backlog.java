@@ -3,8 +3,6 @@ package com.fiuba.aninfo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fiuba.aninfo.model.PasoTarea.EstadoPasoTarea;
-
 public class Backlog {
 	
 	private List<TareaEmpleado> tareasDelEmpleado;

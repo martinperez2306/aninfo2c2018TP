@@ -2,10 +2,6 @@ package com.fiuba.aninfo.model;
 
 public class PasoTarea {
 	
-	public enum EstadoPasoTarea{
-		COMPLETO,INCOMPLETO
-	}
-	
 	private Integer idPasoTarea;
 	
 	private String descripcion;

@@ -1,7 +1,5 @@
 package com.fiuba.aninfo.model;
 
-import com.fiuba.aninfo.model.PasoTarea.EstadoPasoTarea;
-
 public class Empleado {
 	
 	private String nombre;
