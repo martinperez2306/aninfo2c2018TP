@@ -1,6 +1,6 @@
 package com.fiuba.aninfo.model;
 
-public class CargaDeHoras {
+public class HorasView {
 
 	private Integer cantidadDeHoras;
 	private Integer dia;
@@ -10,7 +10,7 @@ public class CargaDeHoras {
 	private Tarea tarea;
 	private Empleado empleado;
 
-	public CargaDeHoras() {
+	public HorasView() {
 
 	}
 

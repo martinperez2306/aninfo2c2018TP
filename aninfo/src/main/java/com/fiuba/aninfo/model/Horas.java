@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Horas {
 	
+	private Long id;
 	private String codigoProyecto;
 	private String codigoTarea;
 	private String dniEmpleado;
@@ -12,6 +13,14 @@ public class Horas {
 	
 	public Horas(){
 		
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCodigoProyecto() {

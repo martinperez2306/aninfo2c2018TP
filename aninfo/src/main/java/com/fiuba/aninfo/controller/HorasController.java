@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fiuba.aninfo.model.CargaDeHoras;
+import com.fiuba.aninfo.model.HorasView;
 import com.fiuba.aninfo.model.Horas;
 import com.fiuba.aninfo.service.HorasService;
 
@@ -22,7 +22,7 @@ public class HorasController {
 	private HorasService horasService;
 
 	@RequestMapping(value="/hours", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<String> addHour(@RequestBody CargaDeHoras cargaDeHoras) {
+	public @ResponseBody ResponseEntity<String> addHour(@RequestBody HorasView cargaDeHoras) {
 		ResponseEntity<String> response = new ResponseEntity<String>("Horas cargadas",HttpStatus.OK);
 		this.horasService.cargarHoras(cargaDeHoras);
 		return response;
