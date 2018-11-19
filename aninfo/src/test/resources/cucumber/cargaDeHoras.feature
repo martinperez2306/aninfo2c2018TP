@@ -4,11 +4,11 @@ Feature: Carga de Horas
   para que se vean reflejadas en el estado de cada proyecto.
 
   Scenario: Cargar Horas
-    Given un desarrollador
-    When carga las horas de su trabajo
-    Then quedan registradas dando informacion de la tarea realizada sobre un determinado proyecto
+    Given el desarrollador "mperez"
+    When carga las horas de su trabajo siendo 5 horas en "psaSpringERP" y 3 horas en "psaSpringCRM"
+    Then ha cargado un total de 8 horas reflejando el trabajo en cada proyecto
 
   Scenario: No cargar mas de las horas disponibles en el dia
-    Given un desarrollador
-    When carga mas horas de las que tiene disponibles en el dia
+    Given el desarrollador "nlongo"
+    When carga 5 horas en "psaSpringERP" y 5 en "psaSpringERP" pero su jornada laboral es de 8 horas
     Then le avisa que no puede cargar mas horas
