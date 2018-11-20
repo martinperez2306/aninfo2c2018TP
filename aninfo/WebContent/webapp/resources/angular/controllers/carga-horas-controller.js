@@ -66,7 +66,8 @@ app.factory('hoursFunctions',function($http){
     	self.fecha = new Date(horaView.fecha);
     	self.proyecto = horaView.proyecto;
     	self.empleado = horaView.empleado;
-    	self.tarea = horaView.tarea;
+    	self.tarea = horaView.codigoTarea;
+    	self.descripcion = horaView.descripcion;
     }
     
     $scope.proyectos = [];

@@ -18,16 +18,16 @@ public class HorasService {
 	
 	public void cargarHoras(HorasView cargaDeHoras) {
 		Horas horas = new Horas();
-//		horas.setCodigoProyecto(cargaDeHoras.getProyecto().getCodigo());
-//		horas.setCodigoTarea(cargaDeHoras.getTarea().getCodigo());
-//		horas.setDniEmpleado(cargaDeHoras.getEmpleado().getDni());
+		horas.setCodigoProyecto(cargaDeHoras.getProyecto());
+		horas.setCodigoTarea(cargaDeHoras.getTarea());
+		horas.setDniEmpleado(cargaDeHoras.getEmpleado());
 		horas.setCantidadDeHoras(cargaDeHoras.getCantidadDeHoras());
 		Date fecha = new Date();
-		fecha.setYear(cargaDeHoras.getAnio());
+		fecha.setYear(cargaDeHoras.getAnio() - 1900);
 		fecha.setMonth(cargaDeHoras.getMes());
 		fecha.setDate(cargaDeHoras.getDia());
 		horas.setFecha(fecha);
-		
+		horas.setDescripcion(cargaDeHoras.getDescripcion());
 		horasDao.insert(horas);
 	}
 	

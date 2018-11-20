@@ -7,6 +7,12 @@
     body{
         background-color:powderblue;
     }
+    tbody{
+    	text-align: center
+    }
+    thead{
+   		text-align: center;
+    }
 </style>
 <script type="text/javascript" src="resources/angular/angular.min.js"></script>
 <script type="text/javascript"
@@ -70,22 +76,22 @@
     	<table>
     		<thead>
     			<tr>
-    				<th>Fecha</th>
-    				<th>Empleado</th>
-    				<th>Proyecto</th>
-    				<th>Tarea</th>
-    				<th>Cantidad de Horas</th>
-    				<th>Descripcion</th>
+    				<th style="width: 15%">Fecha</th>
+    				<th style="width: 15%">Empleado</th>
+    				<th style="width: 15%">Proyecto</th>
+    				<th style="width: 15%">Tarea</th>
+    				<th style="width: 15%">Cantidad de Horas</th>
+    				<th style="width: 15%">Descripcion</th>
     			</tr>
     		</thead>
     		<tbody>
     			<tr ng-repeat="hora in hours">
-    				<td>{{hora.fecha}}</td>
-    				<td>{{hora.empleado}}</td>
-    				<td>{{hora.proyecto}}</th>
-    				<td>{{hora.tarea}}</td>
-    				<td>{{hora.cantidadDeHoras}}</td>
-    				<th>{{hora.descripcion}}</th>
+    				<td style="width: 15%">{{hora.fecha}}</td>
+    				<td style="width: 15%">{{hora.empleado}}</td>
+    				<td style="width: 15%">{{hora.proyecto}}</th>
+    				<td style="width: 15%">{{hora.tarea}}</td>
+    				<td style="width: 15%">{{hora.cantidadDeHoras}}</td>
+    				<td style="width: 15%">{{hora.descripcion}}</td>
     			</tr>
     		</tbody>
     	</table>

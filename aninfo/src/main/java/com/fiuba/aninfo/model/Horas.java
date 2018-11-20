@@ -10,6 +10,7 @@ public class Horas {
 	private String dniEmpleado;
 	private Integer cantidadDeHoras;
 	private Date fecha;
+	private String descripcion;
 	
 	public Horas(){
 		
@@ -61,6 +62,14 @@ public class Horas {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 }
