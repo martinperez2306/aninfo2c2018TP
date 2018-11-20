@@ -21,8 +21,8 @@ public class EmpleadosController {
 	
 	@RequestMapping(value="/employees", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<Empleado>> getEmpleados() {
-		List<Empleado> proyectos = this.empleadoService.getAllEmpleados();
-		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(proyectos,HttpStatus.OK);
+		List<Empleado> empleados = this.empleadoService.getAllEmpleados();
+		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(empleados,HttpStatus.OK);
 		return response;
 	}
 }

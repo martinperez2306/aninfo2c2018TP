@@ -18,9 +18,9 @@ public class HorasService {
 	
 	public void cargarHoras(HorasView cargaDeHoras) {
 		Horas horas = new Horas();
-		horas.setCodigoProyecto(cargaDeHoras.getProyecto().getCodigo());
-		horas.setCodigoTarea(cargaDeHoras.getTarea().getCodigo());
-		horas.setDniEmpleado(cargaDeHoras.getEmpleado().getDni());
+//		horas.setCodigoProyecto(cargaDeHoras.getProyecto().getCodigo());
+//		horas.setCodigoTarea(cargaDeHoras.getTarea().getCodigo());
+//		horas.setDniEmpleado(cargaDeHoras.getEmpleado().getDni());
 		horas.setCantidadDeHoras(cargaDeHoras.getCantidadDeHoras());
 		Date fecha = new Date();
 		fecha.setYear(cargaDeHoras.getAnio());

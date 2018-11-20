@@ -1,7 +1,7 @@
 var app = angular.module('aninfoApp', []);
 var scope = {};
 
-app.factory('loadHoursFunctions',function($http){
+app.factory('hoursFunctions',function($http){
 	
 	var loadHours = function(cargaDeHoras, callback){
 		$http({
@@ -13,7 +13,7 @@ app.factory('loadHoursFunctions',function($http){
 		})
 	}
 	
-	var getHours = function(cargaDeHoras, callback){
+	var getHours = function(callback){
 		$http({
 			method: 'GET',
 			url: '/aninfo/hours'
@@ -23,11 +23,56 @@ app.factory('loadHoursFunctions',function($http){
 	}
 	
 	return{
-		loadHours:loadHours
+		loadHours:loadHours,
+		getHours:getHours
 	}
 })
-.controller('cargaHorasController', function($scope,loadHoursFunctions) {
+.factory('proyectosFunctions',function($http){
+	
+	var getProyectos = function(callback){
+		$http({
+			method: 'GET',
+			url: '/aninfo/projects'
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
+	return{
+		getProyectos:getProyectos
+	}
+})
+.factory('tareasFunctions',function($http){
+	
+	var getTareas = function(callback){
+		$http({
+			method: 'GET',
+			url: '/aninfo/tasks'
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
+	return{
+		getTareas:getTareas
+	}
+})
+.controller('cargaHorasController', function($scope,hoursFunctions,proyectosFunctions,tareasFunctions) {
     scope = $scope;
+    
+    Hora = function(horaView){
+    	var self = this;
+    	self.cantidadDeHoras = horaView.cantidadDeHoras;
+    	self.fecha = new Date(horaView.fecha);
+    	self.proyecto = horaView.proyecto;
+    	self.empleado = horaView.empleado;
+    	self.tarea = horaView.tarea;
+    }
+    
+    $scope.proyectos = [];
+    $scope.tareas = [];
+    $scope.hours = [];
+    
     $scope.init = function(){
     	$scope.horasCargadas = {
     		cantidadDeHoras:0,
@@ -44,6 +89,18 @@ app.factory('loadHoursFunctions',function($http){
     		horaFinal:0,
     		minutoFinal:0
     	}
+    	
+    	proyectosFunctions.getProyectos(function(response){
+    		angular.forEach(response, function(proyecto){
+    			$scope.proyectos.push(proyecto);
+    		})
+    	})
+    	
+    	tareasFunctions.getTareas(function(response){
+    		angular.forEach(response, function(tarea){
+    			$scope.tareas.push(tarea);
+    		})
+    	})
     }    
         
     $scope.cargarHoras = function(){
@@ -58,7 +115,7 @@ app.factory('loadHoursFunctions',function($http){
     		proyecto:form.proyecto,
     		tarea:form.tarea
     	}
-    	loadHoursFunctions.loadHours(cargaDeHoras,function(response){
+    	hoursFunctions.loadHours(cargaDeHoras,function(response){
     		console.log("Recibiendo respuesta");
     		console.log(response);
     	})
@@ -69,6 +126,15 @@ app.factory('loadHoursFunctions',function($http){
     	if(form.horaFinal > form.horaInicial){
     		form.cantidadDeHoras = form.horaFinal - form.horaInicial;
     	}
+    }
+    
+    $scope.consultarHoras = function(){
+    	hoursFunctions.getHours(function(response){
+    		angular.forEach(response.data, function(hour){
+    			var hora = new Hora(hour);
+    			$scope.hours.push(hora);
+    		})
+    	})
     }
     
 });

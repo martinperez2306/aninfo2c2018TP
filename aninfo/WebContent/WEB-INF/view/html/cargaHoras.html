@@ -11,6 +11,10 @@
 <script type="text/javascript" src="resources/angular/angular.min.js"></script>
 <script type="text/javascript"
 	src="resources/angular/controllers/carga-horas-controller.js"></script>
+<!-- <script type="text/javascript" -->
+<!-- 	src="resources/angular/factorys/proyecto-factory.js"></script> -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="resources/angular/factorys/tarea-factory.js"></script> -->
 </head>
 <body>
 <h1>Sistema de Carga de Horas</h1>
@@ -60,6 +64,32 @@
 	<br>
 	<textarea rows="5" cols="25" ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
 	</textarea>
+    </div>
+    <div>
+    	Lista de Horas cargadas
+    	<table>
+    		<thead>
+    			<tr>
+    				<th>Fecha</th>
+    				<th>Empleado</th>
+    				<th>Proyecto</th>
+    				<th>Tarea</th>
+    				<th>Cantidad de Horas</th>
+    				<th>Descripcion</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="hora in hours">
+    				<td>{{hora.fecha}}</td>
+    				<td>{{hora.empleado}}</td>
+    				<td>{{hora.proyecto}}</th>
+    				<td>{{hora.tarea}}</td>
+    				<td>{{hora.cantidadDeHoras}}</td>
+    				<th>{{hora.descripcion}}</th>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<button ng-click="consultarHoras()">Recargar</button>
     </div>
 </div>
 </body>

@@ -6,9 +6,10 @@ public class HorasView {
 	private Integer dia;
 	private Integer mes;
 	private Integer anio;
-	private Proyecto proyecto;
-	private Tarea tarea;
-	private Empleado empleado;
+	private String proyecto;
+	private String tarea;
+	private String empleado;
+	private String descripcion;
 
 	public HorasView() {
 
@@ -46,28 +47,36 @@ public class HorasView {
 		this.anio = anio;
 	}
 
-	public Proyecto getProyecto() {
+	public String getProyecto() {
 		return proyecto;
 	}
 
-	public void setProyecto(Proyecto proyecto) {
+	public void setProyecto(String proyecto) {
 		this.proyecto = proyecto;
 	}
 
-	public Tarea getTarea() {
+	public String getTarea() {
 		return tarea;
 	}
 
-	public void setTarea(Tarea tarea) {
+	public void setTarea(String tarea) {
 		this.tarea = tarea;
 	}
 
-	public Empleado getEmpleado() {
+	public String getEmpleado() {
 		return empleado;
 	}
 
-	public void setEmpleado(Empleado empleado) {
+	public void setEmpleado(String empleado) {
 		this.empleado = empleado;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 }
