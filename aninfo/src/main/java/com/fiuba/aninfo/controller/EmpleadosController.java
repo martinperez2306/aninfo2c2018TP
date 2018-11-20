@@ -19,10 +19,10 @@ public class EmpleadosController {
 	@Autowired
 	private EmpleadoService empleadoService;
 	
-	@RequestMapping(value="/hour", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity<List<Empleado>> getHour() {
-		List<Empleado> proyectos = this.empleadoService.getAllEmpleados();
-		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(proyectos,HttpStatus.OK);
+	@RequestMapping(value="/employees", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Empleado>> getEmpleados() {
+		List<Empleado> empleados = this.empleadoService.getAllEmpleados();
+		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(empleados,HttpStatus.OK);
 		return response;
 	}
 }
