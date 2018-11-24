@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import com.fiuba.aninfo.model.Empleado;
+import com.fiuba.aninfo.model.Rol;
 
 @Component
 public class TablaEmpleados implements TableInterface<Empleado>, InitializingBean{
@@ -52,22 +53,52 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		this.empleados = new HashMap<String,Empleado>();
+		
 		Empleado retchegaray = new Empleado();
 		retchegaray.setDni("retchegaray");
 		retchegaray.setNombre("Rodrigo Etchegaray");
+		Rol rolRetchegaray = new Rol();
+		rolRetchegaray.setRol("desarrolador");
+		rolRetchegaray.setUrl("cargaHoras");
+		retchegaray.setRolEmpleado(rolRetchegaray);
+		
 		Empleado nlongo = new Empleado();
 		nlongo.setDni("nlongo");
 		nlongo.setNombre("Nicolas Longo");
+		Rol rolNlongo = new Rol();
+		rolNlongo.setRol("desarrolador");
+		rolNlongo.setUrl("cargaHoras");
+		nlongo.setRolEmpleado(rolNlongo);
+		
 		Empleado rcotarelo = new Empleado();
 		rcotarelo.setDni("rcotarelo");
 		rcotarelo.setNombre("Rodrigo Cotarelo");
+		Rol rolRcotarelo = new Rol();
+		rolRcotarelo.setRol("desarrolador");
+		rolRcotarelo.setUrl("cargaHoras");
+		rcotarelo.setRolEmpleado(rolRcotarelo);
+		
 		Empleado mperez = new Empleado();
 		mperez.setDni("mperez");
 		mperez.setNombre("Martin Perez");
+		Rol rolMperez = new Rol();
+		rolMperez.setRol("desarrolador");
+		rolMperez.setUrl("cargaHoras");
+		mperez.setRolEmpleado(rolMperez);
+		
+		Empleado gbenedetti = new Empleado();
+		gbenedetti.setNombre("Guido De Benedetti");
+		gbenedetti.setDni("gbenedetti");
+		Rol rolGbenedetti = new Rol();
+		rolGbenedetti.setRol("operaciones");
+		rolGbenedetti.setUrl("asignaciones");
+		gbenedetti.setRolEmpleado(rolGbenedetti);
+		
 		this.insert(mperez);
 		this.insert(nlongo);
 		this.insert(rcotarelo);
-		this.insert(retchegaray);		
+		this.insert(retchegaray);
+		this.insert(gbenedetti);
 	}
 
 }
