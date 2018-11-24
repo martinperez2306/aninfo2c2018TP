@@ -1,4 +1,4 @@
-var app = angular.module('aninfoApp', []);
+var app = angular.module('aninfoApp', ['proyectosModule','tareasModule']);
 var scope = {};
 
 app.factory('hoursFunctions',function($http){
@@ -25,36 +25,6 @@ app.factory('hoursFunctions',function($http){
 	return{
 		loadHours:loadHours,
 		getHours:getHours
-	}
-})
-.factory('proyectosFunctions',function($http){
-	
-	var getProyectos = function(callback){
-		$http({
-			method: 'GET',
-			url: '/aninfo/projects'
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	return{
-		getProyectos:getProyectos
-	}
-})
-.factory('tareasFunctions',function($http){
-	
-	var getTareas = function(callback){
-		$http({
-			method: 'GET',
-			url: '/aninfo/tasks'
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	return{
-		getTareas:getTareas
 	}
 })
 .controller('cargaHorasController', function($scope,hoursFunctions,proyectosFunctions,tareasFunctions) {
