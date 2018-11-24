@@ -92,13 +92,13 @@ app.factory('hoursFunctions',function($http){
     	}
     	
     	proyectosFunctions.getProyectos(function(response){
-    		angular.forEach(response, function(proyecto){
+    		angular.forEach(response.data, function(proyecto){
     			$scope.proyectos.push(proyecto);
     		})
     	})
     	
     	tareasFunctions.getTareas(function(response){
-    		angular.forEach(response, function(tarea){
+    		angular.forEach(response.data, function(tarea){
     			$scope.tareas.push(tarea);
     		})
     	})

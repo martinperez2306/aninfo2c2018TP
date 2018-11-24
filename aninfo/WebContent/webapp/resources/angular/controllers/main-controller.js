@@ -1,49 +1,34 @@
 var app = angular.module('aninfoApp', []);
+var scope = {};
 
-
-app.factory('loadHoursFunctions',function($http){
+app.factory('empleadosFunctions',function($http){
 	
-	var loadHours = function(cargaDeHoras, callback){
-		$http({
-			method: 'POST',
-			data:cargaDeHoras,
-			url: '/aninfo/hour'
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	var getHours = function(cargaDeHoras, callback){
+	var getEmpleados = function(callback){
 		$http({
 			method: 'GET',
-			url: '/aninfo/hour'
+			url: '/aninfo/employees'
 		}).then(function(response){
 			callback(response);
 		})
 	}
 	
 	return{
-		loadHours:loadHours
+		getEmpleados:getEmpleados
 	}
 })
-.controller('mainController', function($scope,loadHoursFunctions) {
-    $scope.name = "";
+.controller('mainController', function($scope,empleadosFunctions) {
+    scope = $scope;
+    
+    $scope.empleados = [];
+    
+    $scope.empleadoSelected = null;
     
     $scope.init = function(){
-    	$scope.newLoad = {
-    			cantidadDeHoras:0,
-    			dia:0,
-    			mes:0,
-    			anio:0
-    		}
-    }    
-        
-    $scope.cargarHoras = function(){
-    	loadHoursFunctions.loadHours($scope.newLoad,function(response){
-    		console.log("Recibiendo respuesta");
-    		console.log(response);
+    	empleadosFunctions.getEmpleados(function(response){
+    		angular.forEach(response.data, function(proyecto){
+    			$scope.empleados.push(proyecto);
+    		})
     	})
-    }
-    
+    }      
     
 });
