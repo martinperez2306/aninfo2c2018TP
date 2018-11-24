@@ -24,7 +24,7 @@ app.factory('proyectosFunctions',function($http){
 	var deleteProyecto = function(proyecto,callback){
 		$http({
 			method:'DELETE',
-			url: '/aninfo/projects'
+			url: '/aninfo/projects/' + proyecto.codigo
 		}).then(function(response){
 			callback(response);
 		})
