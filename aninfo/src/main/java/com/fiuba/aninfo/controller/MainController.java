@@ -1,6 +1,7 @@
 package com.fiuba.aninfo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,8 +13,8 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/cargaHoras",method = RequestMethod.GET)
-	public String cargaHoras() {
+	@RequestMapping(value="/cargaHoras/{dni}",method = RequestMethod.GET)
+	public String cargaHoras(@PathVariable(value = "dni") String dni) {
 		return "cargaHoras";
 	}
 	

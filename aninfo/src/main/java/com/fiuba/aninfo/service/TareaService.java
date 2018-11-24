@@ -17,4 +17,14 @@ public class TareaService {
 	public List<Tarea> getAllTareas(){
 		return this.tareaDao.select("");
 	}
+
+	public void addTarea(Tarea tarea) {
+		this.tareaDao.insert(tarea);
+	}
+
+	public void deleteTarea(String codigo) {
+		Tarea tarea = new Tarea();
+		tarea.setCodigo(codigo);
+		this.tareaDao.delete(tarea);
+	}
 }
