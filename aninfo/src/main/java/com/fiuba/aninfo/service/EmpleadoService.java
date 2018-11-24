@@ -18,4 +18,8 @@ public class EmpleadoService {
 		return empleadosDao.select("");
 	}
 
+	public List<Empleado> getDesarrolladores() {
+		return empleadosDao.select("desarrolladores");
+	}
+
 }

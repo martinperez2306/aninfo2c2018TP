@@ -25,4 +25,11 @@ public class EmpleadosController {
 		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(empleados,HttpStatus.OK);
 		return response;
 	}
+	
+	@RequestMapping(value="/employees/desarrolladores", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Empleado>> getDesarrolladores() {
+		List<Empleado> empleados = this.empleadoService.getDesarrolladores();
+		ResponseEntity<List<Empleado>> response = new ResponseEntity<List<Empleado>>(empleados,HttpStatus.OK);
+		return response;
+	}
 }

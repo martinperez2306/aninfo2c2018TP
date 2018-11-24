@@ -27,8 +27,14 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 	public List<Empleado> select(String sql) {
 		if(sql == null || sql.equals("")) {
 			return new ArrayList<Empleado>(empleados.values());
-		}
-		else {
+		}else if(sql.equals("desarrolladores")) {
+			List<Empleado> empleados = new ArrayList<Empleado>();
+			for (Empleado empleado : this.empleados.values()) {
+				if(empleado.getRolEmpleado().getRol().equals("desarrollador"))
+					empleados.add(empleado);
+			}
+			return empleados;
+		}else {
 			List<Empleado> empleados = new ArrayList<Empleado>();
 			for (Empleado empleado : this.empleados.values()) {
 				if(empleado.getDni().equals(sql))
@@ -58,7 +64,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		retchegaray.setDni("retchegaray");
 		retchegaray.setNombre("Rodrigo Etchegaray");
 		Rol rolRetchegaray = new Rol();
-		rolRetchegaray.setRol("desarrolador");
+		rolRetchegaray.setRol("desarrollador");
 		rolRetchegaray.setUrl("cargaHoras");
 		retchegaray.setRolEmpleado(rolRetchegaray);
 		
@@ -66,7 +72,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		nlongo.setDni("nlongo");
 		nlongo.setNombre("Nicolas Longo");
 		Rol rolNlongo = new Rol();
-		rolNlongo.setRol("desarrolador");
+		rolNlongo.setRol("desarrollador");
 		rolNlongo.setUrl("cargaHoras");
 		nlongo.setRolEmpleado(rolNlongo);
 		
@@ -74,7 +80,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		rcotarelo.setDni("rcotarelo");
 		rcotarelo.setNombre("Rodrigo Cotarelo");
 		Rol rolRcotarelo = new Rol();
-		rolRcotarelo.setRol("desarrolador");
+		rolRcotarelo.setRol("desarrollador");
 		rolRcotarelo.setUrl("cargaHoras");
 		rcotarelo.setRolEmpleado(rolRcotarelo);
 		
@@ -82,7 +88,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		mperez.setDni("mperez");
 		mperez.setNombre("Martin Perez");
 		Rol rolMperez = new Rol();
-		rolMperez.setRol("desarrolador");
+		rolMperez.setRol("desarrollador");
 		rolMperez.setUrl("cargaHoras");
 		mperez.setRolEmpleado(rolMperez);
 		

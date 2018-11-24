@@ -26,7 +26,7 @@ app.factory('asignacionesFunctions',function($http){
     		})
     	})
     	
-    	empleadosFunctions.getEmpleados(function(response){
+    	empleadosFunctions.getDesarrolladores(function(response){
     		angular.forEach(response.data, function(empleado){
     			$scope.empleados.push(empleado);
     		})
