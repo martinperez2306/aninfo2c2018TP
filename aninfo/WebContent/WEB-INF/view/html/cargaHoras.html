@@ -58,11 +58,7 @@
     <div>
         Seleccione la tarea
 	<br>
-	<select ng-model="horasCargadas.tarea">
-		<option value="Desarrollo">Desarrollo</option>
-		<option value="Testing">Testing</option>
-		<option value="Mantenimiento de Red">Mantenimiento de Red</option>
-		<option value="Auditoria">Auditoria</option>
+	<select ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" ng-model="horasCargadas.tarea">
 	</select>
 	<br>
 	<br>

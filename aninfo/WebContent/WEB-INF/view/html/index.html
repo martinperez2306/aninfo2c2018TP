@@ -2,28 +2,47 @@
 <html>
 
 <head>
+<style>
+	body{
+        background-color:powderblue;
+    }
+    tbody{
+    	text-align: center
+    }
+    thead{
+   		text-align: center;
+    }
+</style>
 <script type="text/javascript" src="resources/angular/angular.min.js"></script>
 <script type="text/javascript"
 	src="resources/angular/controllers/main-controller.js"></script>
+<script type="text/javascript">
+    var _contextPath = "${pageContext.request.contextPath}";
+</script>
 </head>
 
 <body>
-	<h2>Hola, ingresa tu nombre:</h2>
+	<h2>Seleccione un Perfil</h2>
 	<div ng-app="aninfoApp" ng-controller="mainController">
-		<p>
-			Nombre: <input type="text" ng-model="name">
-		</p>
-		<div>Hola {{name}}</div>
 		<div ng-init="init()">
-			<p>
-				Cantidad de Horas:  <input type="number" ng-model="newLoad.cantidadDeHoras">
-				Dia:  <input type="number" ng-model="newLoad.dia">
-				Mes:  <input type="number" ng-model="newLoad.mes">
-				A&ntilde;o:  <input type="number" ng-model="newLoad.anio">
-			</p>
-		</div>
-		<div>
-			<input type="button" ng-click="cargarHoras()" value="Enviar">
+			<table>
+	    		<thead>
+	    			<tr>
+	    				<th style="width: 25%">DNI</th>
+	    				<th style="width: 25%">Nombre</th>
+	    				<th style="width: 25%">Rol</th>
+	    				<th style="width: 25%">Acceso</th>
+	    			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr ng-repeat="empleado in empleados track by empleado.dni">
+	    				<td style="width: 25%">{{empleado.dni}}</td>
+	    				<td style="width: 25%">{{empleado.nombre}}</td>
+	    				<td style="width: 25%">{{empleado.rolEmpleado.rol}}</th>
+	    				<td style="width: 25%"><button><a ng-href="{{empleado.rolEmpleado.url}}">Acceder</a></button></td>
+	    			</tr>
+	    		</tbody>
+    		</table>
 		</div>
 	</div>
 </html>
