@@ -11,7 +11,28 @@ app.factory('tareasFunctions',function($http){
 		})
 	}
 	
+	var addTarea = function(tarea,callback){
+		$http({
+			method: 'POST',
+			url: '/aninfo/tasks',
+			data:tarea
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
+	var deleteTarea = function(tarea,callback){
+		$http({
+			method: 'DELETE',
+			url: '/aninfo/tasks/'+tarea.codigo
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
 	return{
-		getTareas:getTareas
+		getTareas:getTareas,
+		addTarea:addTarea,
+		deleteTarea:deleteTarea
 	}
 });

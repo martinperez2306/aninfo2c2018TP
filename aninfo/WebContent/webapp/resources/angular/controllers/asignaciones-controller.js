@@ -32,6 +32,21 @@ app.factory('asignacionesFunctions',function($http){
     	self.presupuesto = nuevoProyecto.presupuesto;
     }
     
+    NuevaTarea = function(){
+    	var self =this;
+    	self.codigo = "";
+    	self.nombre = "";
+    	self.descripcion="";
+    	self.edit = false;
+    }
+    
+    Tarea = function(nuevaTarea){
+    	var self =this;
+    	self.codigo = nuevaTarea.codigo;
+    	self.nombre = nuevaTarea.nombre;
+    	self.descripcion=nuevaTarea.descripcion;
+    }
+    
     $scope.init = function(){
     	proyectosFunctions.getProyectos(function(response){
     		angular.forEach(response.data, function(proyecto){
@@ -79,6 +94,38 @@ app.factory('asignacionesFunctions',function($http){
     	proyectosFunctions.getProyectos(function(response){
     		angular.forEach(response.data, function(proyecto){
     			$scope.proyectos.push(proyecto);
+    		})
+    	})
+    }
+    
+    
+    $scope.agregarTarea = function(){
+    	$scope.nuevaTarea = new NuevaTarea();
+    	$scope.nuevaTarea.edit = true;
+    }
+    
+    $scope.aceptarNuevaTarea = function(){
+    	var tarea = new Tarea($scope.nuevaTarea);
+    	tareasFunctions.addTarea(tarea,function(response){
+    		$scope.nuevaTarea = new NuevaTarea();
+    	})
+    }
+    
+    $scope.cancelarNuevaTarea = function(){
+    	$scope.nuevaTarea.edit = false;
+    }
+    
+    $scope.borrarTarea = function(tarea){
+    	tareasFunctions.deleteTarea(tarea,function(response){
+    		$scope.cargarTareas();
+    	})
+    }
+    
+    $scope.cargarTareas = function(){
+    	$scope.tareas = [];
+    	tareasFunctions.getTareas(function(response){
+    		angular.forEach(response.data, function(tarea){
+    			$scope.tareas.push(tarea);
     		})
     	})
     }
