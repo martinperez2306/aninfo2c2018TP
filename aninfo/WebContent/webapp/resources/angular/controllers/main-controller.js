@@ -1,22 +1,7 @@
-var app = angular.module('aninfoApp', []);
+var app = angular.module('aninfoApp', ['empleadosModule']);
 var scope = {};
 
-app.factory('empleadosFunctions',function($http){
-	
-	var getEmpleados = function(callback){
-		$http({
-			method: 'GET',
-			url: '/aninfo/employees'
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	return{
-		getEmpleados:getEmpleados
-	}
-})
-.controller('mainController', function($scope,empleadosFunctions) {
+app.controller('mainController', function($scope,empleadosFunctions) {
     scope = $scope;
     
     $scope.empleados = [];

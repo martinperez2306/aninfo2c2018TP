@@ -1,4 +1,4 @@
-var app = angular.module('aninfoApp', []);
+var app = angular.module('tareasModule', []);
 
 app.factory('tareasFunctions',function($http){
 	

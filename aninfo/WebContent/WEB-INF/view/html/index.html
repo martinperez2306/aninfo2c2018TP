@@ -16,6 +16,8 @@
 <script type="text/javascript" src="resources/angular/angular.min.js"></script>
 <script type="text/javascript"
 	src="resources/angular/controllers/main-controller.js"></script>
+<script type="text/javascript"
+	src="resources/angular/factorys/empleado-factory.js"></script>
 <script type="text/javascript">
     var _contextPath = "${pageContext.request.contextPath}";
 </script>
@@ -39,7 +41,7 @@
 	    				<td style="width: 25%">{{empleado.dni}}</td>
 	    				<td style="width: 25%">{{empleado.nombre}}</td>
 	    				<td style="width: 25%">{{empleado.rolEmpleado.rol}}</th>
-	    				<td style="width: 25%"><button><a ng-href="{{empleado.rolEmpleado.url}}">Acceder</a></button></td>
+	    				<td style="width: 25%"><button><a ng-href="{{empleado.rolEmpleado.url}}/{{empleado.dni}}">Acceder</a></button></td>
 	    			</tr>
 	    		</tbody>
     		</table>

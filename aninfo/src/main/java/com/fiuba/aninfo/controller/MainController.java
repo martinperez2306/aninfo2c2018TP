@@ -18,8 +18,8 @@ public class MainController {
 		return "cargaHoras";
 	}
 	
-	@RequestMapping(value="/asignaciones",method = RequestMethod.GET)
-	public String asignaciones() {
+	@RequestMapping(value="/asignaciones/{dni}",method = RequestMethod.GET)
+	public String asignaciones(@PathVariable(value = "dni") String dni) {
 		return "asignaciones";
 	}
 }

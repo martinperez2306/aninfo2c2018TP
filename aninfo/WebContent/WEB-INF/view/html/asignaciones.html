@@ -2,9 +2,89 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Gestion de Operaciones</title>
+<style>
+	body{
+        background-color:powderblue;
+    }
+    tbody{
+    	text-align: center
+    }
+    thead{
+   		text-align: center;
+    }
+</style>
+<script type="text/javascript" src="../resources/angular/angular.min.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/controllers/asignaciones-controller.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/proyecto-factory.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/tarea-factory.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/empleado-factory.js"></script>
 </head>
 <body>
-
+<div ng-app="aninfoApp" ng-controller="asignacionesController" ng-init="init()">
+	<div style="width: 33%">
+    	Proyectos
+    	<table>
+    		<thead>
+    			<tr>
+    				<th style="width: 25%">Codigo</th>
+    				<th style="width: 25%">Vencimiento</th>
+    				<th style="width: 25%">Fecha Entrega</th>
+    				<th style="width: 25%">Presupuesto</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="proyecto in proyectos">
+    				<td style="width: 25%">{{proyecto.codigo}}</td>
+    				<td style="width: 25%">{{proyecto.vencimiento}}</td>
+    				<td style="width: 25%">{{proyecto.fechaEntrega}}</td>
+    				<td style="width: 25%">{{proyecto.presupuesto}}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<button ng-click="cargarProyectos()">Recargar</button>
+    </div>
+    <div style="width: 33%">
+    	Tareas
+    	<table>
+    		<thead>
+    			<tr>
+    				<th style="width: 33%">Codigo</th>
+    				<th style="width: 33%">Nombre</th>
+    				<th style="width: 33%">Descripcion</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="tarea in tareas">
+    				<td style="width: 15%">{{tarea.codigo}}</td>
+    				<td style="width: 15%">{{tarea.nombre}}</td>
+    				<td style="width: 15%">{{hora.descripcion}}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<button ng-click="cargarTareas()">Recargar</button>
+    </div>
+    <div style="width: 33%">
+    	Empleados
+    	<table>
+    		<thead>
+    			<tr>
+    				<th style="width: 50%">DNI</th>
+    				<th style="width: 50%">Nombre</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="empleado in empleado">
+    				<td style="width: 50%">{{empleado.dni}}</td>
+    				<td style="width: 50%">{{empleado.nombre}}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+</div>
 </body>
 </html>

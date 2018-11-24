@@ -114,7 +114,7 @@ app.factory('hoursFunctions',function($http){
     		descripcion:form.descripcion,
     		empleado:form.empleado,
     		proyecto:form.proyecto,
-    		tarea:form.tarea
+    		tarea:form.tarea.nombre
     	}
     	hoursFunctions.loadHours(cargaDeHoras,function(response){
     		console.log("Recibiendo respuesta");
