@@ -9,6 +9,16 @@ public class MainController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping(value="/cargaHoras",method = RequestMethod.GET)
+	public String cargaHoras() {
 		return "cargaHoras";
+	}
+	
+	@RequestMapping(value="/asignaciones",method = RequestMethod.GET)
+	public String asignaciones() {
+		return "asignaciones";
 	}
 }
