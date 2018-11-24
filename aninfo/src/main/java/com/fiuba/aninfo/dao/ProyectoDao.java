@@ -18,4 +18,14 @@ public class ProyectoDao {
 		return this.tablaProyectos.select(sql);
 	}
 
+	public void insert(Proyecto proyecto) {
+		this.tablaProyectos.insert(proyecto);
+	}
+
+	public void delete(String codigo) {
+		Proyecto proyectoABorrar = new Proyecto();
+		proyectoABorrar.setCodigo(codigo);
+		this.tablaProyectos.delete(proyectoABorrar);
+	}
+
 }

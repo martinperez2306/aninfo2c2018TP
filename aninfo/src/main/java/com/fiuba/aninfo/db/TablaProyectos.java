@@ -44,8 +44,13 @@ public class TablaProyectos implements TableInterface<Proyecto>, InitializingBea
 
 	@Override
 	public void delete(Proyecto element) {
-		// TODO Auto-generated method stub
-
+		List<Proyecto> nuevaLista = new ArrayList<Proyecto>();
+		for (Proyecto proyecto : this.proyectosList) {
+			if(!proyecto.getCodigo().equals(element.getCodigo())) {
+				nuevaLista.add(proyecto);
+			}
+		}
+		this.proyectosList = nuevaLista;
 	}
 
 	@Override

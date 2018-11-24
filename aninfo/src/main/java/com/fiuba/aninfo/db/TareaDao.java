@@ -17,4 +17,12 @@ public class TareaDao {
 		return this.tablaTareas.select(sql);
 	}
 
+	public void insert(Tarea tarea) {
+		this.tablaTareas.insert(tarea);
+	}
+
+	public void delete(Tarea tarea) {
+		this.tablaTareas.delete(tarea);
+	}
+
 }
