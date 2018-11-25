@@ -34,8 +34,8 @@ app.factory('hoursFunctions',function($http){
     	var self = this;
     	self.cantidadDeHoras = horaView.cantidadDeHoras;
     	self.fecha = new Date(horaView.fecha);
-    	self.proyecto = horaView.proyecto;
-    	self.empleado = horaView.empleado;
+    	self.proyecto = horaView.codigoProyecto;
+    	self.empleado = horaView.dniEmpleado;
     	self.tarea = horaView.codigoTarea;
     	self.descripcion = horaView.descripcion;
     }
@@ -90,6 +90,7 @@ app.factory('hoursFunctions',function($http){
     			})
     		})
     	})
+    	$scope.consultarHoras();
     }    
         
     $scope.cargarHoras = function(){
@@ -100,8 +101,8 @@ app.factory('hoursFunctions',function($http){
     		mes: form.selectedDate.getMonth() + 1,
     		dia: form.selectedDate.getDate(),
     		descripcion:form.descripcion,
-    		empleado:form.empleado,
-    		proyecto:form.proyecto,
+    		empleado:$scope.dniEmpleado,
+    		proyecto:form.proyecto.codigo,
     		tarea:form.tarea.nombre
     	}
     	hoursFunctions.loadHours(cargaDeHoras,function(response){
@@ -118,6 +119,7 @@ app.factory('hoursFunctions',function($http){
     }
     
     $scope.consultarHoras = function(){
+    	$scope.hours = [];
     	hoursFunctions.getHours(function(response){
     		angular.forEach(response.data, function(hour){
     			var hora = new Hora(hour);

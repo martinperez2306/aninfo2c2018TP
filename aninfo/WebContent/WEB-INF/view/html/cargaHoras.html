@@ -68,20 +68,26 @@
 	</form>      
     </div>
     <div class="form-group">
-        <label>Seleccione la tarea</label>
-	<br>
-	<select class="form-control" 
-			ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" 
-			ng-model="horasCargadas.tarea">
-	</select>
-	<br>
-	<br>
-	<label>Comentarios</label>
-	<br>
-	<textarea  class="form-control" 
-			   rows="5" cols="25" 
-			   ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
-	</textarea>
+        <label>Seleccione Proyecto</label>
+		<br>
+		<select class="form-control" 
+				ng-options="proyecto as proyecto.codigo for proyecto in proyectos track by proyecto.codigo" 
+				ng-model="horasCargadas.proyecto">
+		</select>
+		<label>Seleccione la tarea</label>
+		<br>
+		<select class="form-control" 
+				ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" 
+				ng-model="horasCargadas.tarea">
+		</select>
+		<br>
+		<br>
+		<label>Comentarios</label>
+		<br>
+		<textarea  class="form-control" 
+				   rows="5" cols="25" 
+				   ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
+		</textarea>
     </div>
     <div>
     	<label>Lista de Horas cargadas</label>
