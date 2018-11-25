@@ -23,6 +23,8 @@
 	src="../../../resources/angular/factorys/tarea-factory.js"></script>
 <script type="text/javascript"
 	src="../../../resources/angular/factorys/empleado-factory.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/factorys/asignacion-factory.js"></script>
 </head>
 <body>
 <div ng-app="aninfoApp" ng-controller="asignacionesController" ng-init="init()">
@@ -72,23 +74,6 @@
     	<button ng-click="aceptarNuevaAsignacion()">Aceptar</button>
     	<button ng-click="cancelarNuevaAsignacion()">Cancelar</button>
     	</div>
-    </div>
-    <div>
-    	Empleados
-    	<table>
-    		<thead>
-    			<tr>
-    				<th style="width: 50%">DNI</th>
-    				<th style="width: 50%">Nombre</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<tr ng-repeat="empleado in empleados">
-    				<td style="width: 50%">{{empleado.dni}}</td>
-    				<td style="width: 50%">{{empleado.nombre}}</td>
-    			</tr>
-    		</tbody>
-    	</table>
     </div>
 </div>
 </body>
