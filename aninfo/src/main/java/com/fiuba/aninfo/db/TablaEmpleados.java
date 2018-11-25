@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import com.fiuba.aninfo.model.Empleado;
+import com.fiuba.aninfo.model.Rol;
 
 @Component
 public class TablaEmpleados implements TableInterface<Empleado>, InitializingBean{
@@ -26,8 +27,14 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 	public List<Empleado> select(String sql) {
 		if(sql == null || sql.equals("")) {
 			return new ArrayList<Empleado>(empleados.values());
-		}
-		else {
+		}else if(sql.equals("desarrolladores")) {
+			List<Empleado> empleados = new ArrayList<Empleado>();
+			for (Empleado empleado : this.empleados.values()) {
+				if(empleado.getRolEmpleado().getRol().equals("desarrollador"))
+					empleados.add(empleado);
+			}
+			return empleados;
+		}else {
 			List<Empleado> empleados = new ArrayList<Empleado>();
 			for (Empleado empleado : this.empleados.values()) {
 				if(empleado.getDni().equals(sql))
@@ -52,22 +59,52 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		this.empleados = new HashMap<String,Empleado>();
+		
 		Empleado retchegaray = new Empleado();
 		retchegaray.setDni("retchegaray");
 		retchegaray.setNombre("Rodrigo Etchegaray");
+		Rol rolRetchegaray = new Rol();
+		rolRetchegaray.setRol("desarrollador");
+		rolRetchegaray.setUrl("cargaHoras");
+		retchegaray.setRolEmpleado(rolRetchegaray);
+		
 		Empleado nlongo = new Empleado();
 		nlongo.setDni("nlongo");
 		nlongo.setNombre("Nicolas Longo");
+		Rol rolNlongo = new Rol();
+		rolNlongo.setRol("desarrollador");
+		rolNlongo.setUrl("cargaHoras");
+		nlongo.setRolEmpleado(rolNlongo);
+		
 		Empleado rcotarelo = new Empleado();
 		rcotarelo.setDni("rcotarelo");
 		rcotarelo.setNombre("Rodrigo Cotarelo");
+		Rol rolRcotarelo = new Rol();
+		rolRcotarelo.setRol("desarrollador");
+		rolRcotarelo.setUrl("cargaHoras");
+		rcotarelo.setRolEmpleado(rolRcotarelo);
+		
 		Empleado mperez = new Empleado();
 		mperez.setDni("mperez");
 		mperez.setNombre("Martin Perez");
+		Rol rolMperez = new Rol();
+		rolMperez.setRol("desarrollador");
+		rolMperez.setUrl("cargaHoras");
+		mperez.setRolEmpleado(rolMperez);
+		
+		Empleado gbenedetti = new Empleado();
+		gbenedetti.setNombre("Guido De Benedetti");
+		gbenedetti.setDni("gbenedetti");
+		Rol rolGbenedetti = new Rol();
+		rolGbenedetti.setRol("operaciones");
+		rolGbenedetti.setUrl("operaciones");
+		gbenedetti.setRolEmpleado(rolGbenedetti);
+		
 		this.insert(mperez);
 		this.insert(nlongo);
 		this.insert(rcotarelo);
-		this.insert(retchegaray);		
+		this.insert(retchegaray);
+		this.insert(gbenedetti);
 	}
 
 }

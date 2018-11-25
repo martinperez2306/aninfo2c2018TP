@@ -57,22 +57,27 @@ public class TablaTareas implements TableInterface<Tarea>, InitializingBean{
 		Tarea desarrollo =  new Tarea();
 		desarrollo.setCodigo("01");
 		desarrollo.setNombre("Desarrollo");
+		desarrollo.setCodigoProyecto("psaSpringERP");
 		this.insert(desarrollo);
 		Tarea analisisYDisenio = new Tarea();
 		analisisYDisenio.setCodigo("02");
 		analisisYDisenio.setNombre("Analisis y Diseño");
+		analisisYDisenio.setCodigoProyecto("psaSpringCRM");
 		this.insert(analisisYDisenio);
 		Tarea mantenimiento = new Tarea();
 		mantenimiento.setCodigo("04");
 		mantenimiento.setNombre("Mantenimiento");
+		mantenimiento.setCodigoProyecto("psaBussinesAnalytics");
 		this.insert(mantenimiento);
 		Tarea instalacion = new Tarea();
 		instalacion.setCodigo("05");
 		instalacion.setNombre("Instalacion");
+		instalacion.setCodigoProyecto("psaBussinesAnalytics");
 		this.insert(instalacion);
 		Tarea testing = new Tarea();
 		testing.setCodigo("06");
 		testing.setNombre("Testing");
+		testing.setCodigoProyecto("psaSpringERP");
 		this.insert(testing);
 	}
 

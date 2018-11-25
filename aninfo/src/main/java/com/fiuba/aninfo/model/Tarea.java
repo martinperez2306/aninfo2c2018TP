@@ -8,6 +8,8 @@ public class Tarea {
 	
 	private String descripcion;
 	
+	private String codigoProyecto;
+	
 	public Tarea() {
 		
 	}
@@ -34,6 +36,14 @@ public class Tarea {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+
+	public String getCodigoProyecto() {
+		return codigoProyecto;
+	}
+
+	public void setCodigoProyecto(String codigoProyecto) {
+		this.codigoProyecto = codigoProyecto;
 	}
 	
 }

@@ -8,6 +8,8 @@ public class Empleado {
 	
 	private Backlog backlog;
 	
+	private Rol rolEmpleado;
+	
 	public Empleado(){
 		
 	}
@@ -36,6 +38,14 @@ public class Empleado {
 		this.backlog = backlog;
 	}
 	
+	public Rol getRolEmpleado() {
+		return rolEmpleado;
+	}
+
+	public void setRolEmpleado(Rol rolEmpleado) {
+		this.rolEmpleado = rolEmpleado;
+	}
+
 	public void receiveTarea(Tarea tarea) {
 		TareaEmpleado tareaEmpleado = new TareaEmpleado();
 		tareaEmpleado.setCodigo(tarea.getCodigo());

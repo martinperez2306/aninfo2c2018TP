@@ -18,4 +18,17 @@ public class ProyectoService {
 		return this.proyectoDao.select("");
 	}
 
+	public void addProyecto(Proyecto proyecto) {
+		this.proyectoDao.insert(proyecto);
+	}
+
+	public void deleteProyecto(String codigo) {
+		this.proyectoDao.delete(codigo);
+	}
+
+	public Proyecto getProyecto(String codigo) {
+		return this.proyectoDao.select(codigo).get(0);
+		
+	}
+
 }

@@ -33,11 +33,18 @@ public class TablaAsignaciones implements TableInterface<Asignacion>, Initializi
 
 	@Override
 	public List<Asignacion> select(String sql) {
-		List<Asignacion> asingaciones = new ArrayList<Asignacion>();
+		List<Asignacion> asignaciones = new ArrayList<Asignacion>();
 		if(sql == null || sql.equals("")) {
-			asingaciones.addAll(this.asignaciones);
+			asignaciones.addAll(this.asignaciones);
 		}
-		else {
+		else if(sql.contains("empleado")){
+			String dni = sql.split("=")[1];
+			for (Asignacion asignacion : this.asignaciones) {
+				if(asignacion.getDniEmpleado().equals(dni)) {
+					asignaciones.add(asignacion);
+				}
+			}
+		}else {
 			for (Asignacion asignacion : this.asignaciones) {
 				if(asignacion.getId().equals(Long.parseLong(sql))) {
 					asignaciones.add(asignacion);

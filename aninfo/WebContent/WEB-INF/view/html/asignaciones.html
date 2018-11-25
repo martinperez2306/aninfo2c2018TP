@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestion de Operaciones</title>
+<style>
+	body{
+        background-color:powderblue;
+    }
+    tbody{
+    	text-align: center
+    }
+    thead{
+   		text-align: center;
+    }
+</style>
+<script type="text/javascript" src="../../../resources/angular/angular.min.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/controllers/asignaciones-controller.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/factorys/proyecto-factory.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/factorys/tarea-factory.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/factorys/empleado-factory.js"></script>
+<script type="text/javascript"
+	src="../../../resources/angular/factorys/asignacion-factory.js"></script>
+</head>
+<body>
+<div ng-app="aninfoApp" ng-controller="asignacionesController" ng-init="init()">
+    
+    <div>
+    	Asignaciones
+    	<div>
+    	<table>
+    		<thead>
+    			<tr>
+    				<th style="width: 25%">ID</th>
+    				<th style="width: 25%">Proyecto</th>
+    				<th style="width: 25%">Tarea</th>
+    				<th style="width: 25%">Empleado</th>
+    				<th style="width: 25%">Accion</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="asignacion in asignaciones">
+    				<td style="width: 25%">{{asignacion.id}}</td>
+    				<td style="width: 25%">{{asignacion.codigoProyecto}}</td>
+    				<td style="width: 25%">{{asignacion.codigoTarea}}</td>
+    				<td style="width: 25%">{{asignacion.dniEmpleado}}</td>
+     				<td style="width: 25%"><button ng-click="borrarAsignacion(asignacion)">Borrar</button></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	</div>
+    	<button ng-click="agregarAsignacion()">Nuevo</button>
+    	<button ng-click="cargarAsignaciones()">Recargar</button>
+    	<div ng-show="nuevaAsignacion.edit">
+    	<table>
+    		<thead>
+    			<tr>
+    				<th style="width: 100%">Empleado</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td style="width: 25%">
+    					<select ng-options="empleado.dni as empleado.nombre for empleado in empleadosDisponibles track by empleado.dni" 
+    							ng-model="nuevaAsignacion.dniEmpleado">
+						</select>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<button ng-click="aceptarNuevaAsignacion()">Aceptar</button>
+    	<button ng-click="cancelarNuevaAsignacion()">Cancelar</button>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

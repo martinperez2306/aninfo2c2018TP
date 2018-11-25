@@ -14,13 +14,15 @@
    		text-align: center;
     }
 </style>
-<script type="text/javascript" src="resources/angular/angular.min.js"></script>
+<script type="text/javascript" src="../resources/angular/angular.min.js"></script>
 <script type="text/javascript"
-	src="resources/angular/controllers/carga-horas-controller.js"></script>
-<!-- <script type="text/javascript" -->
-<!-- 	src="resources/angular/factorys/proyecto-factory.js"></script> -->
-<!-- <script type="text/javascript" -->
-<!-- 	src="resources/angular/factorys/tarea-factory.js"></script> -->
+	src="../resources/angular/controllers/carga-horas-controller.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/proyecto-factory.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/tarea-factory.js"></script>
+<script type="text/javascript"
+	src="../resources/angular/factorys/asignacion-factory.js"></script>
 </head>
 <body>
 <h1>Sistema de Carga de Horas</h1>
@@ -58,11 +60,7 @@
     <div>
         Seleccione la tarea
 	<br>
-	<select ng-model="horasCargadas.tarea">
-		<option value="Desarrollo">Desarrollo</option>
-		<option value="Testing">Testing</option>
-		<option value="Mantenimiento de Red">Mantenimiento de Red</option>
-		<option value="Auditoria">Auditoria</option>
+	<select ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" ng-model="horasCargadas.tarea">
 	</select>
 	<br>
 	<br>
