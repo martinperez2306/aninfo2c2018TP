@@ -30,7 +30,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		}else if(sql.equals("desarrolladores")) {
 			List<Empleado> empleados = new ArrayList<Empleado>();
 			for (Empleado empleado : this.empleados.values()) {
-				if(empleado.getRolEmpleado().getRol().equals("desarrollador"))
+				if(empleado.getRolEmpleado().getRol().toUpperCase().equals("DESARROLLADOR"))
 					empleados.add(empleado);
 			}
 			return empleados;

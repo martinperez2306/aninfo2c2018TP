@@ -16,6 +16,7 @@ app.controller('tareasController', function($scope,$location,proyectosFunctions,
     	self.nombre = "";
     	self.descripcion="";
     	self.edit = false;
+    	self.codigoProyecto=$scope.codigoProyecto;
     }
     
     Tarea = function(nuevaTarea){
@@ -23,6 +24,7 @@ app.controller('tareasController', function($scope,$location,proyectosFunctions,
     	self.codigo = nuevaTarea.codigo;
     	self.nombre = nuevaTarea.nombre;
     	self.descripcion=nuevaTarea.descripcion;
+    	self.codigoProyecto = nuevaTarea.codigoProyecto;
     }
     
     $scope.init = function(){
@@ -65,7 +67,9 @@ app.controller('tareasController', function($scope,$location,proyectosFunctions,
     	$scope.tareas = [];
     	tareasFunctions.getTareas(function(response){
     		angular.forEach(response.data, function(tarea){
-    			$scope.tareas.push(tarea);
+    			if(tarea.codigoProyecto == $scope.codigoProyecto){
+    				$scope.tareas.push(tarea);
+    			}
     		})
     	})
     }
