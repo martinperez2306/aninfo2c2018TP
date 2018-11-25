@@ -47,9 +47,16 @@ app.controller('asignacionesController', function($scope,$location,asignacionesF
     }
     
     $scope.agregarAsignacion = function(){
+    	$scope.empleadosDisponibles = [];
     	empleadosFunctions.getDesarrolladores(function(response){
     		angular.forEach(response.data, function(empleado){
-    			$scope.empleadosDisponibles.push(empleado);
+    			var empleadoAsignado = false;
+    			angular.forEach($scope.asignaciones,function(asignacion){
+    				if(asignacion.dniEmpleado == empleado.dni)
+    					empleadoAsignado = true;
+    			})
+    			if(!empleadoAsignado)
+    				$scope.empleadosDisponibles.push(empleado);
     		})
     	})
     	$scope.nuevaAsignacion = new NuevaAsignacion();
