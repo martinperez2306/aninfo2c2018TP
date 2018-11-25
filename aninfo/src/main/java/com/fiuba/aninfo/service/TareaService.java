@@ -27,4 +27,8 @@ public class TareaService {
 		tarea.setCodigo(codigo);
 		this.tareaDao.delete(tarea);
 	}
+
+	public Tarea getTarea(String codigo) {
+		return this.tareaDao.select(codigo).get(0);
+	}
 }

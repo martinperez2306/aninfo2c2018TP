@@ -41,5 +41,12 @@ public class TareasController {
 		ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
 		return response;
 	}
+	
+	@RequestMapping(value="/tasks/{codigo}", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<Tarea> getTarea(@PathVariable(value = "codigo") String codigo) {
+		Tarea tarea = this.tareaService.getTarea(codigo);
+		ResponseEntity<Tarea> response = new ResponseEntity<Tarea>(tarea,HttpStatus.OK);
+		return response;
+	}
 
 }

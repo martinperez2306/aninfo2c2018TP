@@ -26,4 +26,9 @@ public class ProyectoService {
 		this.proyectoDao.delete(codigo);
 	}
 
+	public Proyecto getProyecto(String codigo) {
+		return this.proyectoDao.select(codigo).get(0);
+		
+	}
+
 }

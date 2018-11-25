@@ -26,15 +26,15 @@ app.controller('tareasController', function($scope,$location,proyectosFunctions,
     }
     
     $scope.init = function(){
-//    	proyectosFunctions.getProyectos(function(response){
-//    		angular.forEach(response.data, function(proyecto){
-//    			$scope.proyectos.push(proyecto);
-//    		})
-//    	})
+    	proyectosFunctions.getProyecto($scope.codigoProyecto, function(response){
+    		$scope.proyecto = response.data;
+    	})
     	
     	tareasFunctions.getTareas(function(response){
     		angular.forEach(response.data, function(tarea){
-    			$scope.tareas.push(tarea);
+    			if(tarea.codigoProyecto == $scope.codigoProyecto){
+    				$scope.tareas.push(tarea);
+    			}
     		})
     	})
     }

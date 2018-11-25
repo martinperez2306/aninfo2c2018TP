@@ -30,9 +30,19 @@ app.factory('tareasFunctions',function($http){
 		})
 	}
 	
+	var getTarea = function(codigoTarea,callback){
+		$http({
+			method: 'GET',
+			url: '/aninfo/tasks/'+codigoTarea
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
 	return{
 		getTareas:getTareas,
 		addTarea:addTarea,
-		deleteTarea:deleteTarea
+		deleteTarea:deleteTarea,
+		getTarea:getTarea
 	}
 });

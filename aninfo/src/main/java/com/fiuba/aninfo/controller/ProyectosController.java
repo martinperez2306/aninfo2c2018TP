@@ -41,4 +41,11 @@ public class ProyectosController {
 		ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
 		return response;
 	}
+	
+	@RequestMapping(value="/projects/{codigo}", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<Proyecto> getProyecto(@PathVariable(value = "codigo") String codigo) {
+		Proyecto proyecto = this.proyectoService.getProyecto(codigo);
+		ResponseEntity<Proyecto> response = new ResponseEntity<Proyecto>(proyecto,HttpStatus.OK);
+		return response;
+	}
 }

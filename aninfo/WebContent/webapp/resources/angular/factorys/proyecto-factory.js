@@ -30,9 +30,19 @@ app.factory('proyectosFunctions',function($http){
 		})
 	}
 	
+	var getProyecto = function(codigoProyecto,callback){
+		$http({
+			method: 'GET',
+			url: '/aninfo/projects/'+codigoProyecto
+		}).then(function(response){
+			callback(response);
+		})
+	}
+	
 	return{
 		getProyectos:getProyectos,
 		addProyecto:addProyecto,
-		deleteProyecto:deleteProyecto
+		deleteProyecto:deleteProyecto,
+		getProyecto:getProyecto
 	}
 });
