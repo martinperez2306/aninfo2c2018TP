@@ -14,112 +14,16 @@
    		text-align: center;
     }
 </style>
-<script type="text/javascript" src="../resources/angular/angular.min.js"></script>
+<script type="text/javascript" src="../../../resources/angular/angular.min.js"></script>
 <script type="text/javascript"
-	src="../resources/angular/controllers/asignaciones-controller.js"></script>
+	src="../../../resources/angular/controllers/asignaciones-controller.js"></script>
 <script type="text/javascript"
-	src="../resources/angular/factorys/proyecto-factory.js"></script>
+	src="../../../resources/angular/factorys/tarea-factory.js"></script>
 <script type="text/javascript"
-	src="../resources/angular/factorys/tarea-factory.js"></script>
-<script type="text/javascript"
-	src="../resources/angular/factorys/empleado-factory.js"></script>
+	src="../../../resources/angular/factorys/empleado-factory.js"></script>
 </head>
 <body>
 <div ng-app="aninfoApp" ng-controller="asignacionesController" ng-init="init()">
-	<div>
-    	Proyectos
-    	<div>
-    	<table>
-    		<thead>
-    			<tr>
-    				<th style="width: 25%">Codigo</th>
-    				<th style="width: 25%">Vencimiento</th>
-    				<th style="width: 25%">Fecha Entrega</th>
-    				<th style="width: 25%">Presupuesto</th>
-    				<th style="width: 25%">Accion</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<tr ng-repeat="proyecto in proyectos">
-    				<td style="width: 25%">{{proyecto.codigo}}</td>
-    				<td style="width: 25%">{{proyecto.vencimiento}}</td>
-    				<td style="width: 25%">{{proyecto.fechaEntrega}}</td>
-    				<td style="width: 25%">{{proyecto.presupuesto}}</td>
-    				<td style="width: 25%"><button ng-click="borrarProyecto(proyecto)">Borrar</button></td>
-    			</tr>
-    		</tbody>
-    	</table>
-    	</div>
-    	<button ng-click="agregarProyecto()">Nuevo</button>
-    	<button ng-click="cargarProyectos()">Recargar</button>
-    	<div ng-show="nuevoProyecto.edit">
-    	<table>
-    		<thead>
-    			<tr>
-    				<th style="width: 25%">Codigo</th>
-    				<th style="width: 25%">Vencimiento</th>
-    				<th style="width: 25%">Fecha Entrega</th>
-    				<th style="width: 25%">Presupuesto</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<tr>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.codigo"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.vencimiento"></td>
-    				<td style="width: 25%"><input type="date" ng-model="nuevoProyecto.fechaEntrega"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.presupuesto"></td>
-    			</tr>
-    		</tbody>
-    	</table>
-    	<button ng-click="aceptarNuevoProyecto()">Aceptar</button>
-    	<button ng-click="cancelarNuevoProyecto()">Cancelar</button>
-    	</div>
-    </div>
-    <div>
-    	Tareas
-    	<div>
-    	<table>
-    		<thead>
-    			<tr>
-    				<th style="width: 25%">Codigo</th>
-    				<th style="width: 25%">Nombre</th>
-    				<th style="width: 25%">Descripcion</th>
-    				<th style="width: 25%">Accion</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<tr ng-repeat="tarea in tareas">
-    				<td style="width: 25%">{{tarea.codigo}}</td>
-    				<td style="width: 25%">{{tarea.nombre}}</td>
-    				<td style="width: 25%">{{tarea.descripcion}}</td>
-     				<td style="width: 25%"><button ng-click="borrarTarea(tarea)">Borrar</button></td>
-    			</tr>
-    		</tbody>
-    	</table>
-    	</div>
-    	<button ng-click="agregarTarea()">Nuevo</button>
-    	<button ng-click="cargarTareas()">Recargar</button>
-    	<div ng-show="nuevaTarea.edit">
-    	<table>
-    		<thead>
-    			<tr>
-    				<th style="width: 25%">Codigo</th>
-    				<th style="width: 25%">Nombre</th>
-    				<th style="width: 25%">Descripcion</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<tr>
-    				<td style="width: 25%"><input type="text" ng-model="nuevaTarea.codigo"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevaTarea.nombre"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevaTarea.descripcion"></td>
-    			</tr>
-    		</tbody>
-    	</table>
-    	<button ng-click="aceptarNuevaTarea()">Aceptar</button>
-    	<button ng-click="cancelarNuevaTarea()">Cancelar</button>
-    	</div>
-    </div>
     <div>
     	Empleados
     	<table>

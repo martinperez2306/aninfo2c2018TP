@@ -97,7 +97,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		gbenedetti.setDni("gbenedetti");
 		Rol rolGbenedetti = new Rol();
 		rolGbenedetti.setRol("operaciones");
-		rolGbenedetti.setUrl("asignaciones");
+		rolGbenedetti.setUrl("operaciones");
 		gbenedetti.setRolEmpleado(rolGbenedetti);
 		
 		this.insert(mperez);
