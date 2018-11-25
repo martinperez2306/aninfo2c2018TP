@@ -1,4 +1,4 @@
-var app = angular.module('aninfoApp', ['proyectosModule','tareasModule']);
+var app = angular.module('aninfoApp', ['proyectosModule','tareasModule','asignacionesModule']);
 var scope = {};
 
 app.factory('hoursFunctions',function($http){
@@ -27,7 +27,7 @@ app.factory('hoursFunctions',function($http){
 		getHours:getHours
 	}
 })
-.controller('cargaHorasController', function($scope,hoursFunctions,proyectosFunctions,tareasFunctions) {
+.controller('cargaHorasController', function($scope,$location,hoursFunctions,proyectosFunctions,tareasFunctions,asignacionesFunctions) {
     scope = $scope;
     
     Hora = function(horaView){
@@ -40,6 +40,10 @@ app.factory('hoursFunctions',function($http){
     	self.descripcion = horaView.descripcion;
     }
     
+    $scope.urlEmpleado = $location.absUrl().split("/")[4];
+    $scope.dniEmpleado = $location.absUrl().split("/")[5];
+    
+    $scope.asignaciones = [];
     $scope.proyectos = [];
     $scope.tareas = [];
     $scope.hours = [];
@@ -61,15 +65,29 @@ app.factory('hoursFunctions',function($http){
     		minutoFinal:0
     	}
     	
-    	proyectosFunctions.getProyectos(function(response){
-    		angular.forEach(response.data, function(proyecto){
-    			$scope.proyectos.push(proyecto);
+    	asignacionesFunctions.getAsignacionesEmpleado($scope.dniEmpleado,function(response){
+    		angular.forEach(response.data, function(asignacion){
+    			$scope.asignaciones.push(asignacion);
     		})
-    	})
+    		
+    		proyectosFunctions.getProyectos(function(response){
+    			angular.forEach(response.data, function(proyecto){
+    				angular.forEach($scope.asignaciones,function(asignacion){
+    					if(asignacion.codigoProyecto == proyecto.codigo){
+    						$scope.proyectos.push(proyecto);
+    					}
+    				})
+    			})
+    		})
     	
-    	tareasFunctions.getTareas(function(response){
-    		angular.forEach(response.data, function(tarea){
-    			$scope.tareas.push(tarea);
+    		tareasFunctions.getTareas(function(response){
+    			angular.forEach(response.data, function(tarea){
+    				angular.forEach($scope.asignaciones,function(asignacion){
+    					if(asignacion.codigoTarea == tarea.codigo){
+    						$scope.tareas.push(tarea);
+    					}
+    				})
+    			})
     		})
     	})
     }    

@@ -1,43 +1,7 @@
-var app = angular.module('aninfoApp', ['proyectosModule','empleadosModule','tareasModule']);
+var app = angular.module('aninfoApp', ['proyectosModule','empleadosModule','tareasModule','asignacionesModule']);
 var scope = {};
 
-app.factory('asignacionesFunctions',function($http){
-	
-	var getAsignaciones = function(callback){
-		$http({
-			method: 'GET',
-			url: '/aninfo/asignaciones'
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	var addAsignacion = function(asignacion,callback){
-		$http({
-			method:'POST',
-			url: '/aninfo/asignaciones',
-			data:asignacion
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	var deleteAsignacion = function(asignacion,callback){
-		$http({
-			method:'DELETE',
-			url: '/aninfo/asignaciones/' + asignacion.id
-		}).then(function(response){
-			callback(response);
-		})
-	}
-	
-	return{
-		getAsignaciones:getAsignaciones,
-		addAsignacion:addAsignacion,
-		deleteAsignacion:deleteAsignacion
-	}
-})
-.controller('asignacionesController', function($scope,$location,asignacionesFunctions,proyectosFunctions,empleadosFunctions,tareasFunctions) {
+app.controller('asignacionesController', function($scope,$location,asignacionesFunctions,proyectosFunctions,empleadosFunctions,tareasFunctions) {
     scope = $scope;
     
     $scope.codigoProyecto = $location.absUrl().split("/")[6];
@@ -51,7 +15,7 @@ app.factory('asignacionesFunctions',function($http){
     NuevaAsignacion = function(){
     	var self =this;
     	self.codigoProyecto = $scope.proyecto.codigo;
-    	self.codigoTarea = $scope.tarea.nombre;
+    	self.codigoTarea = $scope.tarea.codigo;
     	self.dniEmpleado="";
     	self.edit = false;
     }
