@@ -29,16 +29,23 @@ public class AsignacionesController {
 	}
 	
 	@RequestMapping(value="/asignaciones", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<String> addProyect(@RequestBody Asignacion asignacion) {
+	public @ResponseBody ResponseEntity<String> addAsignacion(@RequestBody Asignacion asignacion) {
 		this.asignacionesService.addAsignacion(asignacion);
 		ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
 		return response;
 	}
 	
 	@RequestMapping(value="/asignaciones/{id}", method = RequestMethod.DELETE)
-	public @ResponseBody ResponseEntity<String> deleteProyecto(@PathVariable(value = "id") Long id) {
+	public @ResponseBody ResponseEntity<String> deleteAsignacion(@PathVariable(value = "id") Long id) {
 		this.asignacionesService.deleteAsignacion(id);
 		ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.OK);
+		return response;
+	}
+	
+	@RequestMapping(value="/asignaciones/empleados/{dni}", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Asignacion>> getAsignacionesEmpleado(@PathVariable(value = "dni") String dni) {
+		List<Asignacion> asignaciones = this.asignacionesService.getAsignacionesDeEmpleado(dni);
+		ResponseEntity<List<Asignacion>> response = new ResponseEntity<List<Asignacion>>(asignaciones,HttpStatus.OK);
 		return response;
 	}
 

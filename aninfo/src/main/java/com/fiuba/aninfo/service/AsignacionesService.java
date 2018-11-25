@@ -29,4 +29,8 @@ public class AsignacionesService {
 		this.asignacionesDao.delete(asignacion);
 	}
 
+	public List<Asignacion> getAsignacionesDeEmpleado(String dni) {
+		return this.asignacionesDao.select("empleado="+dni);
+	}
+
 }
