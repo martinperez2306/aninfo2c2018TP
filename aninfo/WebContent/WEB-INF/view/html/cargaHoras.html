@@ -2,18 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sistema de Carga de Horas</title>
-<style>
-    body{
-        background-color:powderblue;
-    }
-    tbody{
-    	text-align: center
-    }
-    thead{
-   		text-align: center;
-    }
-</style>
+<title>Carga de Horas</title>
+
+<!-- JQuery -->
+<script src="../resources/js/jquery-2-1-3.min.js"></script>
+
+<!-- AngularJS -->
 <script type="text/javascript" src="../resources/angular/angular.min.js"></script>
 <script type="text/javascript"
 	src="../resources/angular/controllers/carga-horas-controller.js"></script>
@@ -23,55 +17,78 @@
 	src="../resources/angular/factorys/tarea-factory.js"></script>
 <script type="text/javascript"
 	src="../resources/angular/factorys/asignacion-factory.js"></script>
+
+<!-- Bootstrap -->
+<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+<script src="../resources/js/bootstrap.min.js"></script>
+
+<style>
+.cargarHorasContainer{
+	display: inline-flex;
+	padding-left: 2%;
+	padding-right:2%
+}
+.botonRegargarTablaHoras{
+	float: right;
+}
+</style>
+
 </head>
 <body>
-<h1>Sistema de Carga de Horas</h1>
-<div style="display: inline-flex;" ng-app="aninfoApp" ng-controller="cargaHorasController">
-    <div ng-init="init()">
-	<form>
-		Seleccione la fecha
+<h2>Sistema de Carga de Horas</h2>
+<div class="cargarHorasContainer" ng-app="aninfoApp" ng-controller="cargaHorasController">
+    <div ng-init="init()" class="form-group">
+	<form class="form-inline">
+		<label>Seleccione la fecha</label>
 		<br>
-		<input type="date" ng-model="horasCargadas.selectedDate">
+		<input class="form-control" type="date" ng-model="horasCargadas.selectedDate">
 		<br>
 		<br>
 		Inicio
 		<br>
-		<input type="number" name="horaInicial" ng-change="calcularTotal()" ng-model="horasCargadas.horaInicial" min="0" max="23">
+		<input class="form-control" type="number" name="horaInicial" ng-change="calcularTotal()" ng-model="horasCargadas.horaInicial" min="0" max="23">
 		:
-		<input type="number" name="minutoInicial" ng-change="calcularTotal()" ng-model="horasCargadas.minutoInicial" min="0" max="59">
+		<input class="form-control" type="number" name="minutoInicial" ng-change="calcularTotal()" ng-model="horasCargadas.minutoInicial" min="0" max="59">
 		hs
 		<br>
 		Fin
 		<br>
-		<input type="number" name="horaFinal" ng-change="calcularTotal()" ng-model="horasCargadas.horaFinal" min="0" max="23">
+		<input class="form-control" type="number" name="horaFinal" ng-change="calcularTotal()" ng-model="horasCargadas.horaFinal" min="0" max="23">
 		:
-		<input type="number" name="minutoFinal" ng-change="calcularTotal()" ng-model="horasCargadas.minutoFinal" min="0" max="23">
+		<input class="form-control" type="number" name="minutoFinal" ng-change="calcularTotal()" ng-model="horasCargadas.minutoFinal" min="0" max="23">
 		hs
 		<br>
 		<br>
 		Horas Totales:
 		<br>
-		<input type="number" name="horasTotales" ng-model="horasCargadas.cantidadDeHoras" disabled min="0" max="24">
+		<input class="form-control" type="number" name="horasTotales" ng-model="horasCargadas.cantidadDeHoras" disabled min="0" max="24">
 		<br>
 		<br>
-		<button ng-click="cargarHoras()">Enviar</button>
+		<button ng-click="cargarHoras()" class="btn btn-default">Enviar</button>
 	</form>      
     </div>
-    <div>
-        Seleccione la tarea
+    <div class="form-group">
+        <label>Seleccione la tarea</label>
 	<br>
-	<select ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" ng-model="horasCargadas.tarea">
+	<select class="form-control" 
+			ng-options="tarea as tarea.nombre for tarea in tareas track by tarea.codigo" 
+			ng-model="horasCargadas.tarea">
 	</select>
 	<br>
 	<br>
-	Comentarios
+	<label>Comentarios</label>
 	<br>
-	<textarea rows="5" cols="25" ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
+	<textarea  class="form-control" 
+			   rows="5" cols="25" 
+			   ng-model="horasCargadas.descripcion">Ingrese sus comentarios.
 	</textarea>
     </div>
     <div>
-    	Lista de Horas cargadas
-    	<table>
+    	<label>Lista de Horas cargadas</label>
+    	<button class="btn btn-info botonRegargarTablaHoras" ng-click="consultarHoras()">
+    		<span class="glyphicon glyphicon-refresh"></span>
+    	</button>
+    	<table class="table table-striped">
     		<thead>
     			<tr>
     				<th style="width: 15%">Fecha</th>
@@ -93,7 +110,6 @@
     			</tr>
     		</tbody>
     	</table>
-    	<button ng-click="consultarHoras()">Recargar</button>
     </div>
 </div>
 </body>
