@@ -3,55 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Gestion de Operaciones</title>
-<style>
-	body{
-        background-color:powderblue;
-    }
-    tbody{
-    	text-align: center
-    }
-    thead{
-   		text-align: center;
-    }
-</style>
-<script type="text/javascript" src="../resources/angular/angular.min.js"></script>
 
+<!-- JQuery -->
+<script src="../resources/js/jquery-2-1-3.min.js"></script>
+
+<!-- AngularJS -->
+<script type="text/javascript" src="../resources/angular/angular.min.js"></script>
 <script type="text/javascript"
 	src="../resources/angular/controllers/operaciones-controller.js"></script>
 <script type="text/javascript"
 	src="../resources/angular/factorys/proyecto-factory.js"></script>
+	
+<!-- Bootstrap -->
+<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+<script src="../resources/js/bootstrap.min.js"></script>
+
+<style>
+.operacionesContainer{
+	padding-left: 2%;
+	padding-right:2%
+}
+.botonVerProyecto{
+	color: white;
+}
+</style>
+
 </head>
 <body>
 <div ng-app="aninfoApp" ng-controller="operacionesController" ng-init="init()">
-	<div>
-    	Proyectos
-    	<div>
-    	<table>
+	<div class="operacionesContainer">
+    	<label>Proyectos</label>
+    	<div class="form-group">
+    	<table class="table table-striped">
     		<thead>
     			<tr>
-    				<th style="width: 25%">Codigo</th>
-    				<th style="width: 25%">Vencimiento</th>
-    				<th style="width: 25%">Fecha Entrega</th>
-    				<th style="width: 25%">Presupuesto</th>
-    				<th style="width: 25%">Accion</th>
+    				<th style="width: 20%">Codigo</th>
+    				<th style="width: 20%">Vencimiento</th>
+    				<th style="width: 20%">Fecha Entrega</th>
+    				<th style="width: 20%">Presupuesto</th>
+    				<th style="width: 20%">Accion</th>
     			</tr>
     		</thead>
     		<tbody>
     			<tr ng-repeat="proyecto in proyectos">
-    				<td style="width: 25%">{{proyecto.codigo}}</td>
-    				<td style="width: 25%">{{proyecto.vencimiento}}</td>
-    				<td style="width: 25%">{{proyecto.fechaEntrega}}</td>
-    				<td style="width: 25%">{{proyecto.presupuesto}}</td>
-    				<td style="width: 25%"><button><a ng-href="{{dniEmpleado}}/{{proyecto.codigo}}">Ver</a></button></td>
-    				<td style="width: 25%"><button ng-click="borrarProyecto(proyecto)">Borrar</button></td>
+    				<td style="width: 20%">{{proyecto.codigo}}</td>
+    				<td style="width: 20%">{{proyecto.vencimiento}}</td>
+    				<td style="width: 20%">{{proyecto.fechaEntrega}}</td>
+    				<td style="width: 20%">{{proyecto.presupuesto}}</td>
+    				<td style="width: 20%">
+    					<a class="btn btn-info" ng-href="{{dniEmpleado}}/{{proyecto.codigo}}"><span class="glyphicon glyphicon-log-in botonVerProyecto"></span></a>
+    					<button class="btn btn-danger" ng-click="borrarProyecto(proyecto)"><span class="glyphicon glyphicon-trash "></span></button>
+    				</td>
     			</tr>
     		</tbody>
     	</table>
     	</div>
-    	<button ng-click="agregarProyecto()">Nuevo</button>
-    	<button ng-click="cargarProyectos()">Recargar</button>
-    	<div ng-show="nuevoProyecto.edit">
-    	<table>
+    	<button class="btn btn-default" ng-click="agregarProyecto()">Nuevo</button>
+    	<button class="btn btn-info" ng-click="cargarProyectos()"><span class="glyphicon glyphicon-refresh"></span></button>
+    	<div class="form-group" ng-show="nuevoProyecto.edit">
+    	<label>Nuevo Proyecto</label>
+    	<table class="table table-striped">
     		<thead>
     			<tr>
     				<th style="width: 25%">Codigo</th>
@@ -62,15 +73,15 @@
     		</thead>
     		<tbody>
     			<tr>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.codigo"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.vencimiento"></td>
-    				<td style="width: 25%"><input type="date" ng-model="nuevoProyecto.fechaEntrega"></td>
-    				<td style="width: 25%"><input type="text" ng-model="nuevoProyecto.presupuesto"></td>
+    				<td style="width: 25%"><input class="form-control" type="text" ng-model="nuevoProyecto.codigo"></td>
+    				<td style="width: 25%"><input class="form-control" type="text" ng-model="nuevoProyecto.vencimiento"></td>
+    				<td style="width: 25%"><input class="form-control" type="date" ng-model="nuevoProyecto.fechaEntrega"></td>
+    				<td style="width: 25%"><input class="form-control" type="text" ng-model="nuevoProyecto.presupuesto"></td>
     			</tr>
     		</tbody>
     	</table>
-    	<button ng-click="aceptarNuevoProyecto()">Aceptar</button>
-    	<button ng-click="cancelarNuevoProyecto()">Cancelar</button>
+    	<button class="btn btn-success" ng-click="aceptarNuevoProyecto()">Aceptar</button>
+    	<button class="btn btn-danger" ng-click="cancelarNuevoProyecto()">Cancelar</button>
     	</div>
     </div>
 </div>

@@ -30,7 +30,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		}else if(sql.equals("desarrolladores")) {
 			List<Empleado> empleados = new ArrayList<Empleado>();
 			for (Empleado empleado : this.empleados.values()) {
-				if(empleado.getRolEmpleado().getRol().equals("desarrollador"))
+				if(empleado.getRolEmpleado().getRol().toUpperCase().equals("DESARROLLADOR"))
 					empleados.add(empleado);
 			}
 			return empleados;
@@ -64,7 +64,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		retchegaray.setDni("retchegaray");
 		retchegaray.setNombre("Rodrigo Etchegaray");
 		Rol rolRetchegaray = new Rol();
-		rolRetchegaray.setRol("desarrollador");
+		rolRetchegaray.setRol("Desarrollador");
 		rolRetchegaray.setUrl("cargaHoras");
 		retchegaray.setRolEmpleado(rolRetchegaray);
 		
@@ -72,7 +72,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		nlongo.setDni("nlongo");
 		nlongo.setNombre("Nicolas Longo");
 		Rol rolNlongo = new Rol();
-		rolNlongo.setRol("desarrollador");
+		rolNlongo.setRol("Desarrollador");
 		rolNlongo.setUrl("cargaHoras");
 		nlongo.setRolEmpleado(rolNlongo);
 		
@@ -80,7 +80,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		rcotarelo.setDni("rcotarelo");
 		rcotarelo.setNombre("Rodrigo Cotarelo");
 		Rol rolRcotarelo = new Rol();
-		rolRcotarelo.setRol("desarrollador");
+		rolRcotarelo.setRol("Desarrollador");
 		rolRcotarelo.setUrl("cargaHoras");
 		rcotarelo.setRolEmpleado(rolRcotarelo);
 		
@@ -88,7 +88,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		mperez.setDni("mperez");
 		mperez.setNombre("Martin Perez");
 		Rol rolMperez = new Rol();
-		rolMperez.setRol("desarrollador");
+		rolMperez.setRol("Desarrollador");
 		rolMperez.setUrl("cargaHoras");
 		mperez.setRolEmpleado(rolMperez);
 		
@@ -96,7 +96,7 @@ public class TablaEmpleados implements TableInterface<Empleado>, InitializingBea
 		gbenedetti.setNombre("Guido De Benedetti");
 		gbenedetti.setDni("gbenedetti");
 		Rol rolGbenedetti = new Rol();
-		rolGbenedetti.setRol("operaciones");
+		rolGbenedetti.setRol("Gerente de Operaciones");
 		rolGbenedetti.setUrl("operaciones");
 		gbenedetti.setRolEmpleado(rolGbenedetti);
 		
